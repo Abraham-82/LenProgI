@@ -17,7 +17,8 @@ char obtenerPrimeraVocalInterna(const std::string& str) {
 std::string calcularRFC(const std::string& nombre, const std::string& apellidoPaterno, const std::string& apellidoMaterno, const std::string& fechaNacimiento) {
 std::string rfc;
 
-// Se obtienen la letra inicial y la primera vocal interna del apellido paterno char letraInicial = apellidoPaterno[0];
+// Se obtienen la letra inicial y la primera vocal interna del apellido paterno 
+char letraInicial = apellidoPaterno[0];
 char primeraVocalInterna = obtenerPrimeraVocalInterna(apellidoPaterno);
 
 // Se obtiene la inicial del apellido materno o se usa una 'X' si no hay
@@ -32,34 +33,35 @@ std::string anio = fechaNacimiento.substr(2, 2);
 // Se obtienen el mes y el día de nacimiento 
 std::string mes = fechaNacimiento.substr(5, 2); std::string dia = fechaNacimiento.substr(8, 2);
 
-// Se construye el RFC rfc = letraInicial;
+// Se construye el RFC 
+rfc = letraInicial;
 rfc += primeraVocalInterna; 
 rfc += inicialApellidoMaterno; 
 rfc += inicialNombre;
 
+
     //Identificar si las primeras cuatro letras del RFC forman una palabra altisonante
-    switch (rfc)
-    {
-    case CULO:
-        rfc="CULX"
+    switch (rfc){
+    case "CULO":
+        rfc="CULX";
         break;
-    case PENE:
-        rfc="PENX"
+    case "PENE":
+        rfc="PENX";
         break;
-    case PITO:
-        rfc="PITX"
+    case "PITO":
+        rfc="PITX";
         break;
-    case PUTA:
-        rfc="PUTX"
+    case "PUTA":
+        rfc="PUTX";
         break;
-    case PUTO:
-        rfc="PUTX"
+    case "PUTO":
+        rfc="PUTX";
         break;
     default:
         break;
     }
 
-
+	
 rfc += anio; 
 rfc += mes; 
 rfc += dia;
@@ -85,5 +87,3 @@ std::string rfc = calcularRFC(nombre, apellidoPaterno, apellidoMaterno, fechaNac
 
 return 0;
 }
-
-
